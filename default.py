@@ -1461,7 +1461,8 @@ def AddToLibrary(video_type, url, title, img, year, imdbnum):
 
                         filename = '%s S%sE%s.strm' %(ShowTitle,seasonnum,epnum)
                         filename = re.sub('[^\w\-_\. ]', '_', filename)
-                        final_path = os.path.join(save_path, ShowTitle, season, filename)
+                        ShowTitle_t = re.sub('[^\w\-_\. ]', '_', ShowTitle)
+                        final_path = os.path.join(save_path, ShowTitle_t, season, filename)
                         final_path = xbmc.makeLegalFilename(final_path)
                         if not xbmcvfs.exists(os.path.dirname(final_path)):
                             try: xbmcvfs.mkdirs(os.path.dirname(final_path))
@@ -1487,7 +1488,8 @@ def AddToLibrary(video_type, url, title, img, year, imdbnum):
         if year: title = '%s (%s)'% (title,year)
         filename = '%s.strm' %title
         filename = re.sub('[^\w\-_\. ]', '_', filename)
-        final_path = os.path.join(save_path,title,filename)
+        title_t = re.sub('[^\w\-_\. ]', '_', title)
+        final_path = os.path.join(save_path,title_t,filename) 
         final_path = xbmc.makeLegalFilename(final_path)
         if not xbmcvfs.exists(os.path.dirname(final_path)):
             try:    xbmcvfs.mkdirs(os.path.dirname(final_path))
